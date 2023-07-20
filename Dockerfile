@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 FROM alpine:latest
 RUN apk --update add ca-certificates \
                      mailcap \
@@ -6,6 +7,9 @@ RUN apk --update add ca-certificates \
 
 COPY healthcheck.sh /healthcheck.sh
 RUN chmod +x /healthcheck.sh  # Make the script executable
+=======
+FROM ubuntu:latest
+>>>>>>> e2bf92ca (added voyager links)
 
 HEALTHCHECK --start-period=2s --interval=5s --timeout=3s \
     CMD /healthcheck.sh || exit 1
@@ -13,7 +17,7 @@ HEALTHCHECK --start-period=2s --interval=5s --timeout=3s \
 VOLUME /srv
 EXPOSE 80
 
-COPY docker_config.json /.filebrowser.json
+COPY docker/root/defaults/settings.json /.filebrowser.json
 COPY filebrowser /filebrowser
 
 ENTRYPOINT [ "/filebrowser" ]
