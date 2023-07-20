@@ -51,11 +51,7 @@
           :label="$t('buttons.explore')"
           @action="explore"
         />
-        <action
-          icon="edit"
-          :label="$t('buttons.story')"
-          @action="editStory"
-        />
+        <action :icon="edit" :label="$t('buttons.story')" @action="editStory" />
         <action
           v-if="headerButtons.shell"
           icon="code"
@@ -354,7 +350,7 @@ export default {
       return this.items.files.slice(0, showLimit);
     },
     hasScene() {
-      return this.items.files.some(o => o.name.endsWith(".svx.json"));
+      return this.items.files.some((o) => o.name.endsWith(".svx.json"));
     },
     nameIcon() {
       if (this.nameSorted && !this.ascOrdered) {
