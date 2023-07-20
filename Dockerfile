@@ -1,4 +1,5 @@
 FROM alpine:latest
+<<<<<<< HEAD
 RUN apk --update add ca-certificates \
                      mailcap \
                      curl \
@@ -6,6 +7,8 @@ RUN apk --update add ca-certificates \
 
 COPY healthcheck.sh /healthcheck.sh
 RUN chmod +x /healthcheck.sh  # Make the script executable
+=======
+>>>>>>> a69839c7 (docker uses alpine)
 
 HEALTHCHECK --start-period=2s --interval=5s --timeout=3s \
     CMD /healthcheck.sh || exit 1
