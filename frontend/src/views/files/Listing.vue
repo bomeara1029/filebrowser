@@ -329,24 +329,6 @@ export default {
     ascOrdered() {
       return this.req.sorting.asc;
     },
-    story() {
-      const relativePath = this.$route.path.replace(this.base, "");
-      let parts = relativePath.split("/");
-      
-      if (parts[0] === "") {
-        parts.shift();
-      }
-
-      if (parts[parts.length - 1] === "") {
-        parts.pop();
-      }
-
-      parts[0] = "story"
-
-      const path = parts.join("/")
-      console.log(path)
-      return path
-    },
     items() {
       const dirs = [];
       const files = [];
@@ -372,7 +354,7 @@ export default {
       return this.items.files.slice(0, showLimit);
     },
     hasScene() {
-      return this.items.files.some(o => o.name.endsWith(".svx.json"))
+      return this.items.files.some(o => o.name.endsWith(".svx.json"));
     },
     nameIcon() {
       if (this.nameSorted && !this.ascOrdered) {
@@ -830,7 +812,7 @@ export default {
     editStory() {
       const relativePath = this.$route.path.replace(this.base, "");
       let parts = relativePath.split("/");
-      
+
       if (parts[0] === "") {
         parts.shift();
       }
@@ -839,17 +821,16 @@ export default {
         parts.pop();
       }
 
-      parts[0] = "story"
+      parts[0] = "story";
 
-      const path = parts.join("/")
-      console.log(path)
-      
-      window.location.href = "/" + path
+      const path = parts.join("/");
+
+      window.location.href = "/" + path;
     },
     explore() {
       const relativePath = this.$route.path.replace(this.base, "");
       let parts = relativePath.split("/");
-      
+
       if (parts[0] === "") {
         parts.shift();
       }
@@ -858,12 +839,11 @@ export default {
         parts.pop();
       }
 
-      parts[0] = "explore"
+      parts[0] = "explore";
 
-      const path = parts.join("/")
-      console.log(path)
-      
-      window.location.href = "/" + path
+      const path = parts.join("/");
+
+      window.location.href = "/" + path;
     },
     download() {
       if (this.selectedCount === 1 && !this.req.items[this.selected[0]].isDir) {
