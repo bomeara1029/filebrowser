@@ -45,11 +45,6 @@
             show="delete"
           />
         </template>
-
-        <!-- <span class="chevron">
-          <i class="material-icons">keyboard_arrow_right</i>
-        </span> -->
-        <!-- <component :is="element" :to="'https://3d-api.cjmoyna.com/story/voyager/elc/public/6490b8e1deffb44c17cc1312/'">Story</component> -->
         <action
           v-if="headerButtons.explore"
           icon="explore"
