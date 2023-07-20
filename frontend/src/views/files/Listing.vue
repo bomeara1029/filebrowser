@@ -46,6 +46,21 @@
           />
         </template>
 
+        <!-- <span class="chevron">
+          <i class="material-icons">keyboard_arrow_right</i>
+        </span> -->
+        <!-- <component :is="element" :to="'https://3d-api.cjmoyna.com/story/voyager/elc/public/6490b8e1deffb44c17cc1312/'">Story</component> -->
+        <action
+          v-if="headerButtons.explore"
+          icon="explore"
+          :label="$t('buttons.explore')"
+          @action="explore"
+        />
+        <action
+          icon="edit"
+          :label="$t('buttons.story')"
+          @action="editStory"
+        />
         <action
           v-if="headerButtons.shell"
           icon="code"
@@ -319,6 +334,24 @@ export default {
     ascOrdered() {
       return this.req.sorting.asc;
     },
+    story() {
+      const relativePath = this.$route.path.replace(this.base, "");
+      let parts = relativePath.split("/");
+      
+      if (parts[0] === "") {
+        parts.shift();
+      }
+
+      if (parts[parts.length - 1] === "") {
+        parts.pop();
+      }
+
+      parts[0] = "story"
+
+      const path = parts.join("/")
+      console.log(path)
+      return path
+    },
     items() {
       const dirs = [];
       const files = [];
@@ -342,6 +375,9 @@ export default {
       if (showLimit < 0) showLimit = 0;
 
       return this.items.files.slice(0, showLimit);
+    },
+    hasScene() {
+      return this.items.files.some(o => o.name.endsWith(".svx.json"))
     },
     nameIcon() {
       if (this.nameSorted && !this.ascOrdered) {
@@ -376,6 +412,7 @@ export default {
       return {
         upload: this.user.perm.create,
         download: this.user.perm.download,
+        explore: this.hasScene,
         shell: this.user.perm.execute && enableExec,
         delete: this.selectedCount > 0 && this.user.perm.delete,
         rename: this.selectedCount === 1 && this.user.perm.rename,
@@ -795,6 +832,44 @@ export default {
       // Fill but not fit the window
       this.fillWindow();
     }, 100),
+    editStory() {
+      const relativePath = this.$route.path.replace(this.base, "");
+      let parts = relativePath.split("/");
+      
+      if (parts[0] === "") {
+        parts.shift();
+      }
+
+      if (parts[parts.length - 1] === "") {
+        parts.pop();
+      }
+
+      parts[0] = "story"
+
+      const path = parts.join("/")
+      console.log(path)
+      
+      window.location.href = "/" + path
+    },
+    explore() {
+      const relativePath = this.$route.path.replace(this.base, "");
+      let parts = relativePath.split("/");
+      
+      if (parts[0] === "") {
+        parts.shift();
+      }
+
+      if (parts[parts.length - 1] === "") {
+        parts.pop();
+      }
+
+      parts[0] = "explore"
+
+      const path = parts.join("/")
+      console.log(path)
+      
+      window.location.href = "/" + path
+    },
     download() {
       if (this.selectedCount === 1 && !this.req.items[this.selected[0]].isDir) {
         api.download(null, this.req.items[this.selected[0]].url);
