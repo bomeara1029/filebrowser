@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 FROM alpine:latest
 RUN apk --update add ca-certificates \
                      mailcap \
@@ -7,9 +6,6 @@ RUN apk --update add ca-certificates \
 
 COPY healthcheck.sh /healthcheck.sh
 RUN chmod +x /healthcheck.sh  # Make the script executable
-=======
-FROM ubuntu:latest
->>>>>>> e2bf92ca (added voyager links)
 
 HEALTHCHECK --start-period=2s --interval=5s --timeout=3s \
     CMD /healthcheck.sh || exit 1
