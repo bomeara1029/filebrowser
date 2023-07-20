@@ -31,13 +31,13 @@ build:
     - goos: freebsd
       goarch: arm
 
-# archives:
-#   -
-#     name_template: "{{.Os}}-{{.Arch}}{{if .Arm}}v{{.Arm}}{{end}}-{{ .ProjectName }}"
-#     format: tar.gz
-#     format_overrides:
-#       - goos: windows
-#         format: zip
+archives:
+  -
+    name_template: "{{.Os}}-{{.Arch}}{{if .Arm}}v{{.Arm}}{{end}}-{{ .ProjectName }}"
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
 
 # dockers:
 #   -
@@ -184,15 +184,15 @@ build:
 #     image_templates:
 #       - "bomeara1029/filebrowser:v{{ .Major }}-amd64-s6"
 #       - "bomeara1029/filebrowser:v{{ .Major }}-arm64-s6"
-brews:
-  - name: filebrowser
-    tap:
-      owner: bomeara1029
-      name: homebrew-tap
-    folder: Formula
-    homepage: https://filebrowser.org
-    commit_author:
-      name: FileBrowser Robot
-      email: robot@filebrowser.org
-    description: File Browser is a create-your-own-cloud-kind of software where you can install it on a server, direct it to a path and then access your files through a nice web interface
-    license: "MIT"
+# brews:
+#   - name: filebrowser
+#     tap:
+#       owner: bomeara1029
+#       name: homebrew-tap
+#     folder: Formula
+#     homepage: https://filebrowser.org
+#     commit_author:
+#       name: FileBrowser Robot
+#       email: robot@filebrowser.org
+#     description: File Browser is a create-your-own-cloud-kind of software where you can install it on a server, direct it to a path and then access your files through a nice web interface
+#     license: "MIT"
