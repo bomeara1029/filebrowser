@@ -51,7 +51,7 @@
           :label="$t('buttons.explore')"
           @action="explore"
         />
-        <action :icon="edit" :label="$t('buttons.story')" @action="editStory" />
+        <action icon="stars" :label="hasScene?$t('buttons.editScene'):$t('buttons.createScene')" @action="editStory" />
         <action
           v-if="headerButtons.shell"
           icon="code"
