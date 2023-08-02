@@ -812,6 +812,8 @@ export default {
       this.fillWindow();
     }, 100),
     editStory() {
+      const self = this.$route.path;
+
       const relativePath = this.$route.path.replace(this.base, "");
       let parts = relativePath.split("/");
 
@@ -827,7 +829,9 @@ export default {
 
       const path = parts.join("/");
 
-      window.location.href = "/" + path;
+      const url = "/" + path + "?uiMode=title|menu|help&referrer=" + self;
+
+      window.location.href = url;
     },
     explore() {
       const relativePath = this.$route.path.replace(this.base, "");
