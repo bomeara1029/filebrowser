@@ -1,5 +1,4 @@
 import store from "@/store";
-import router from "@/router";
 import { Base64 } from "js-base64";
 import { baseURL, logoutPath } from "@/utils/constants";
 
@@ -88,5 +87,5 @@ export function logout() {
   store.commit("setJWT", "");
   store.commit("setUser", null);
   localStorage.setItem("jwt", null);
-  router.push({ path: logoutPath });
+  window.location.replace(logoutPath);
 }
