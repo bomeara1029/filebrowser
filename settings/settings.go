@@ -8,6 +8,7 @@ import (
 )
 
 const DefaultUsersHomeBasePath = "/users"
+const DefaultLogoutPath = "/login"
 
 // AuthMethod describes an authentication method.
 type AuthMethod string
@@ -18,6 +19,7 @@ type Settings struct {
 	Signup           bool                `json:"signup"`
 	CreateUserDir    bool                `json:"createUserDir"`
 	UserHomeBasePath string              `json:"userHomeBasePath"`
+	LogoutPath       string		         `json:"LogoutPath"`
 	Defaults         UserDefaults        `json:"defaults"`
 	AuthMethod       AuthMethod          `json:"authMethod"`
 	Branding         Branding            `json:"branding"`

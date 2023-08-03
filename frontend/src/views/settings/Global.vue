@@ -27,6 +27,15 @@
             />
           </div>
 
+          <div>
+            <p class="small">{{ $t("settings.userLogoutRedirectPath") }}</p>
+            <input
+              class="input input--block"
+              type="text"
+              v-model="settings.userLogoutRedirectPath"
+            />
+          </div>
+
           <h3>{{ $t("settings.rules") }}</h3>
           <p class="small">{{ $t("settings.globalRules") }}</p>
           <rules :rules.sync="settings.rules" />

@@ -12,6 +12,7 @@ type settingsData struct {
 	Signup           bool                  `json:"signup"`
 	CreateUserDir    bool                  `json:"createUserDir"`
 	UserHomeBasePath string                `json:"userHomeBasePath"`
+	LogoutPath		 string          	   `json:"LogoutPath"`
 	Defaults         settings.UserDefaults `json:"defaults"`
 	Rules            []rules.Rule          `json:"rules"`
 	Branding         settings.Branding     `json:"branding"`
@@ -25,6 +26,7 @@ var settingsGetHandler = withAdmin(func(w http.ResponseWriter, r *http.Request, 
 		Signup:           d.settings.Signup,
 		CreateUserDir:    d.settings.CreateUserDir,
 		UserHomeBasePath: d.settings.UserHomeBasePath,
+		LogoutPath: 	  d.settings.LogoutPath,
 		Defaults:         d.settings.Defaults,
 		Rules:            d.settings.Rules,
 		Branding:         d.settings.Branding,
@@ -46,6 +48,7 @@ var settingsPutHandler = withAdmin(func(w http.ResponseWriter, r *http.Request, 
 	d.settings.Signup = req.Signup
 	d.settings.CreateUserDir = req.CreateUserDir
 	d.settings.UserHomeBasePath = req.UserHomeBasePath
+	d.settings.LogoutPath = req.LogoutPath
 	d.settings.Defaults = req.Defaults
 	d.settings.Rules = req.Rules
 	d.settings.Branding = req.Branding

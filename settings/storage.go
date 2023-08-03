@@ -39,6 +39,9 @@ func (s *Storage) Get() (*Settings, error) {
 			RetryCount: DefaultTusRetryCount,
 		}
 	}
+	if set.LogoutPath == "" {
+		set.LogoutPath = DefaultLogoutPath
+	}
 	return set, nil
 }
 

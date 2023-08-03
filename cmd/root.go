@@ -26,7 +26,7 @@ import (
 	"github.com/filebrowser/filebrowser/v2/frontend"
 	fbhttp "github.com/filebrowser/filebrowser/v2/http"
 	"github.com/filebrowser/filebrowser/v2/img"
-	"github.com/filebrowser/filebrowser/v2/settings"
+	"github.com/bomeara1029/filebrowser/v2/settings"
 	"github.com/filebrowser/filebrowser/v2/storage"
 	"github.com/filebrowser/filebrowser/v2/users"
 )
@@ -317,6 +317,7 @@ func quickSetup(flags *pflag.FlagSet, d pythonData) {
 		Signup:           false,
 		CreateUserDir:    false,
 		UserHomeBasePath: settings.DefaultUsersHomeBasePath,
+		LogoutPath: 	  settings.DefaultLogoutPath,
 		Defaults: settings.UserDefaults{
 			Scope:       ".",
 			Locale:      "en",
