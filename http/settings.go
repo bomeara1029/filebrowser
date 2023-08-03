@@ -25,7 +25,7 @@ var settingsGetHandler = withAdmin(func(w http.ResponseWriter, r *http.Request, 
 	data := &settingsData{
 		Signup:           d.settings.Signup,
 		CreateUserDir:    d.settings.CreateUserDir,
-		ShowLogout:	      d.settings.ShowLogout,
+		ShowLogout:       d.settings.ShowLogout,
 		UserHomeBasePath: d.settings.UserHomeBasePath,
 		LogoutPath:       d.settings.LogoutPath,
 		Defaults:         d.settings.Defaults,
