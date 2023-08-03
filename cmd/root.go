@@ -316,9 +316,9 @@ func quickSetup(flags *pflag.FlagSet, d pythonData) {
 		Key:              generateKey(),
 		Signup:           false,
 		CreateUserDir:    false,
-		ShowLogout:		  false,
+		ShowLogout:       false,
 		UserHomeBasePath: settings.DefaultUsersHomeBasePath,
-		LogoutPath: 	  settings.DefaultLogoutPath,
+		LogoutPath:       settings.DefaultLogoutPath,
 		Defaults: settings.UserDefaults{
 			Scope:       ".",
 			Locale:      "en",
