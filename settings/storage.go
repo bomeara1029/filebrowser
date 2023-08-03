@@ -33,6 +33,9 @@ func (s *Storage) Get() (*Settings, error) {
 	if set.UserHomeBasePath == "" {
 		set.UserHomeBasePath = DefaultUsersHomeBasePath
 	}
+	if set.LogoutPath == "" {
+		set.LogoutPath = DefaultLogoutPath
+	}
 	return set, nil
 }
 

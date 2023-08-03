@@ -1,7 +1,7 @@
 import store from "@/store";
 import router from "@/router";
 import { Base64 } from "js-base64";
-import { baseURL } from "@/utils/constants";
+import { baseURL, logoutPath } from "@/utils/constants";
 
 export function parseToken(token) {
   const parts = token.split(".");
@@ -88,5 +88,5 @@ export function logout() {
   store.commit("setJWT", "");
   store.commit("setUser", null);
   localStorage.setItem("jwt", null);
-  router.push({ path: "/login" });
+  router.push({ path: logoutPath });
 }
