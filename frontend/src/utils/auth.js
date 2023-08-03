@@ -88,6 +88,6 @@ export function logout() {
   store.commit("setJWT", "");
   store.commit("setUser", null);
   localStorage.setItem("jwt", null);
-  router.push({ path: '/login' });
+  router.push({ path: "/login" });
   window.location.replace(logoutPath);
 }
