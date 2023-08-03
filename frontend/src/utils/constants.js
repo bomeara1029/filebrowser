@@ -11,6 +11,7 @@ const version = window.FileBrowser.Version;
 const logoURL = `${staticURL}/img/logo.svg`;
 const noAuth = window.FileBrowser.NoAuth;
 const authMethod = window.FileBrowser.AuthMethod;
+const showLogout = window.FileBrowser.ShowLogout;
 const loginPage = window.FileBrowser.LoginPage;
 const theme = window.FileBrowser.Theme;
 const enableThumbs = window.FileBrowser.EnableThumbs;
@@ -31,6 +32,7 @@ export {
   version,
   noAuth,
   authMethod,
+  showLogout,
   loginPage,
   theme,
   enableThumbs,

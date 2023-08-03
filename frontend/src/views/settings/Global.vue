@@ -26,13 +26,18 @@
               v-model="settings.userHomeBasePath"
             />
           </div>
+          
+          <p>
+            <input type="checkbox" v-model="settings.showLogout" />
+            {{ $t("settings.showLogout") }}
+          </p>
 
           <div>
-            <p class="small">{{ $t("settings.userLogoutRedirectPath") }}</p>
+            <p class="small">{{ $t("settings.logoutPath") }}</p>
             <input
               class="input input--block"
               type="text"
-              v-model="settings.userLogoutRedirectPath"
+              v-model="settings.logoutPath"
             />
           </div>
 
